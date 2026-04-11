@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ info.title }}</h2>
+<p><strong>{{ info.day }}, {{ info.time }}, {{ info.room }}</strong></p>
+
+<p>(<a href="{{ url_for('static', filename='pdf/namae-talk.pdf')}}">slides</a>)
+
+<h3>Abstract</h3>
+
+<p>How do Japanese baby names express gender — and how is this changing today?</p>
+
+<p>In this talk, we examine contemporary naming practices using a combination
+of qualitative and quantitative data: parental naming stories from the Baby
+Calendar website, historical and modern name guides, and large-scale
+frequency data from sources such as Heisei Namae Jiten and Meiji Yasuda.</p>
+
+<p>Our analysis shows a clear shift: traditional gender distinctions are
+becoming less rigid, with more gender-neutral names and a softening of
+masculine naming patterns. Placing Japan in a broader perspective, we argue
+that these developments reflect a wider global trend in the rethinking of
+gender and identity through personal names.</p>
+
+<p><em>Note: This is work done with Ivona Barešová.</em></p>
+
+<h3>Readings/Preparation</h3>
+
+<dl>
+  <dt>Ivona Barešová (2006)</dt>
+  <dd><i>Japanese Personal Names: Their Linguistic and Social Significance</i>.
+    Palacký University, Olomouc.
+  </dd>
+</dl>
+
+{% endblock %}

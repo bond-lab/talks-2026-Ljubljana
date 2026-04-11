@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ info.title }}</h2>
+<p><strong>{{ info.day }}, {{ info.time }}, {{ info.room }}</strong></p>
+
+<p>(<a href="{{ url_for('static', filename='pdf/wordnet.pdf')}}">slides</a>)
+
+<h3>Abstract</h3>
+
+<p>Through hands-on exercises, students will learn how WordNets group
+meanings into synsets, how these synsets are linked by semantic relations,
+and how such networks model lexical organization in ways that support
+linguistic inquiry. Students are encouraged to bring their own laptops so
+they can experiment directly using the Python <code>wn</code> module.</p>
+
+<p>A central theme of the talk is cross-linguistic comparison. Using the
+Japanese (日本語ワードネット) and Open Multilingual Wordnets (OMW), students
+will investigate how different languages carve up conceptual space,
+identifying cases of one-to-many sense correspondences, lexical gaps, and
+differences in morphology. This exploration highlights both the strengths
+of graph-based approaches: explicit structure, interpretability, and
+linguistic grounding; and their limitations: including issues of coverage,
+granularity, and cross-lingual alignment.</p>
+
+<p><em>Note: This uses work done with Michael Goodman and many, many others.</em></p>
+
+<h3>Hands-on Exercises</h3>
+
+<ol>
+  <li>Install and load the <code>wn</code> module with OMW data:
+<pre><code class="language-python">import wn
+wn.download('omw')
+ewn = wn.Wordnet('omw-en:1.4')
+jwn = wn.Wordnet('omw-ja:1.4')
+</code></pre>
+  </li>
+
+  <li>Look at the translations for different senses of <i>bird</i>:
+    <ul>
+      <li>How many senses are there?</li>
+      <li>What are their definitions?</li>
+      <li>For each translation, print the definition (from the synset) and lemmas (from the word)</li>
+    </ul>
+  </li>
+
+  <li>Compare how English and Japanese carve up a semantic domain of your choice
+    (e.g. kinship terms, colour terms, body parts).
+    <ul>
+      <li>Where do the mappings align?</li>
+      <li>Where are there lexical gaps or mismatches?</li>
+    </ul>
+  </li>
+
+  <li>Does the wordnet you are exploring have words without ILIs?
+    What does this tell us about coverage?</li>
+</ol>
+
+<h3>Readings/Preparation</h3>
+
+<dl>
+  <dt><a name="Goodman:Bond:2021">Michael Wayne Goodman and Francis Bond</a> (2021)</dt>
+  <dd><a href="https://aclanthology.org/2021.gwc-1.9/">WN: A Python Library for Wordnets</a>.
+    In <i>Proceedings of the 11th Global WordNet Conference (GWC2021)</i>.
+  </dd>
+
+  <dt><a name="Bond:Paik:2012">Francis Bond and Kyonghee Paik</a> (2012)</dt>
+  <dd><a href="https://bond-lab.github.io/pdf/2012-gwc-wn-license.pdf">A survey of wordnets and their licenses</a>.
+    In <i>Proceedings of the 6th Global WordNet Conference (GWC 2012)</i>. Matsue. 64–71.
+  </dd>
+</dl>
+
+{% endblock %}

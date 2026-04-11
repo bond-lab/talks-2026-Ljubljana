@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ info.title }}</h2>
+<p><strong>{{ info.day }}, {{ info.time }}, {{ info.room }}</strong></p>
+
+<p>(<a href="{{ url_for('static', filename='pdf/lec-02-omw.pdf')}}">slides</a>)
+
+<h3>Abstract</h3>
+
+<p>For many years, people have used lexical graphs of semantic relations —
+such as synonymy, antonymy, hyponymy, and meronymy — to encode lexical
+meaning. In this talk I will introduce the Japanese wordnet, a large
+scale, freely available, semantic dictionary of Japanese.</p>
+
+<p>The Japanese WordNet was originally developed at the National Institute
+of Information and Communications Technology (NICT) in 2006, to support
+Natural Language Processing research in Japan. The first version (0.9)
+was released in February 2009. It is currently maintained by an
+international team. As the first step in compiling the Japanese WordNet,
+we added Japanese equivalents to synsets of the Princeton WordNet.
+Currently we have added many synsets which do not exist in the Princeton
+WordNet, and modified the structure of the hierarchy, in order to make it
+better represent the Japanese language.</p>
+
+<p>Finally, I show how research on Japanese led us to build the Open
+Multilingual Wordnet.</p>
+
+<p><em>Note: This is work done with Takayuki Kuribayashi and many, many others.</em></p>
+
+<h3>Readings/Preparation</h3>
+
+<dl>
+  <dt><a name="Bond:Paik:2012">Francis Bond and Kyonghee Paik</a> (2012)</dt>
+  <dd><a href="https://bond-lab.github.io/pdf/2012-gwc-wn-license.pdf">A survey of wordnets and their licenses</a>.
+    In <i>Proceedings of the 6th Global WordNet Conference (GWC 2012)</i>. Matsue. 64–71.
+  </dd>
+
+  <dt><a name="Bond:Vossen:McCrae:Fellbaum:2016">Francis Bond, Piek Vossen, John McCrae, and Christiane Fellbaum</a> (2016)</dt>
+  <dd><a href="https://aclanthology.org/2016.gwc-1.9/">CILI: the Collaborative Interlingual Index</a>.
+    In <i>Proceedings of the 8th Global WordNet Conference (GWC2016)</i>, Bucharest. pp&nbsp;50&ndash;57.
+  </dd>
+
+  <dt><a name="Bond:Fellbaum:2024">Francis Bond and Christiane Fellbaum</a> (2024)</dt>
+  <dd><a href="https://aclanthology.org/2024.gwc-1.1/">The Open Multilingual Wordnet 2.0</a>.
+    In <i>Proceedings of the 12th Global WordNet Conference (GWC2024)</i>.
+  </dd>
+</dl>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ info.title }}</h2>
+<p><strong>{{ info.day }}, {{ info.time }}, {{ info.room }}</strong></p>
+
+<p>(<a href="{{ url_for('static', filename='pdf/schultink.pdf')}}">slides</a>)
+
+<h3>Abstract</h3>
+
+<p>How do we trace the paths of meaning as it travels across languages? A
+<i>storm of protest</i> is vivid in English — but does the same metaphorical
+force of a storm carry over into Japanese or Zulu? Patterns of metaphor and
+metonymy may be widespread, yet their specific mappings reveal the distinct
+cognitive and cultural contours of each language. To study these paths, we
+need more than isolated examples; we need multilingual maps. Wordnets, with
+their networks of synsets and semantic relations, offer a kind of semantic
+cartography, allowing us to explore how meanings shift, radiate, and
+connect.</p>
+
+<p>In this talk, I introduce recent work on modelling metaphorical and
+metonymic extensions in lexical networks, focusing on ChainNet, and show
+how these patterns can be examined both within and across languages. This
+multilingual perspective is enabled by the Open Multilingual Wordnet, which
+brings together lexical data from many languages within a shared semantic
+framework and allows comparison of meaning structures at scale. I discuss
+both its strengths — such as the ability to capture fine-grained
+distinctions — and its limitations, including uneven coverage and structural
+inconsistencies across languages.</p>
+
+<p>Beyond the analysis of sense relations, wordnets also provide a practical
+framework for organising and linking lexical knowledge. Resources such as
+the Open Multilingual Wordnet support applications ranging from
+cross-linguistic comparison to the development of digital dictionaries and
+learning materials. While they form only part of a broader ecosystem, such
+networks can contribute to language documentation, education, and efforts to
+make lexical resources more accessible to both researchers and learners. By
+modelling how metonymy travels and metaphor wanders, we begin to map not
+just words, but the deeper connections between language, culture, and how we
+make sense of the world.</p>
+
+<p><em>Note: This is work done with Rowan Hall Maudslay.</em></p>
+
+<hr>
+<p>Talk in the <a href='https://www.sdjt.si/wp/dogodki/jota/'>JOTA series</a>
+of occasional language technology lectures at the University of Ljubljana, {{ info.time }}.
+
+{% endblock %}
