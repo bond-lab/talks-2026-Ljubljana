@@ -6,7 +6,7 @@ nav = "Wordnet"
 title = "The Japanese Wordnet and the Open Multilingual Wordnet"
 day = "Monday"
 time = "16:20–17:50"
-room = "Classroom 01"
+room = "Classroom 013 (Faculty of Arts)"
 
 [weeks.using_wordnets]
 key = "using_wordnets"
@@ -14,7 +14,7 @@ nav = "Using Wordnets"
 title = "Using Wordnets — Online and Through Python"
 day = "Wednesday"
 time = "13:00–14:30"
-room = "Classroom 01"
+room = "Classroom 018 (Faculty of Arts)"
 
 [weeks.japanese_names]
 key = "japanese_names"
@@ -22,7 +22,7 @@ nav = "Japanese Names"
 title = "An Analysis of Contemporary Japanese Names"
 day = "Thursday"
 time = "11:20–12:50"
-room = "Classroom 4"
+room = "Classroom 2-rim (faculty of Arts)"
 
 [weeks.metonymy]
 key = "metonymy"
@@ -30,4 +30,4 @@ nav = "Metonymy"
 title = "Multilingual Modelling with Wordnets: Metonymy Travels, Metaphor Wanders"
 day = "Friday"
 time = "10:00–11:30"
-room = "JOTA series"
+room = "JOTA series: P19 (Faculty of Computer Science)"

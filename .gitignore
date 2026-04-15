@@ -1,3 +1,6 @@
+docs/cygnet/*.db.gz
+build/cygnet-work/
+
 slides/_minted-*/
 slides/*.aux
 slides/*.bbl
