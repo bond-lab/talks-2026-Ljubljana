@@ -1,9 +1,9 @@
 """Route declaration."""
-from flask import current_app as app
-from flask import render_template, g
 import os
+
 import toml
-from datetime import datetime, timedelta
+from flask import current_app as app
+from flask import render_template, g, send_from_directory
 
 
 # Load the weeks data from the TOML file
@@ -36,3 +36,16 @@ def week(week_key):
                                info=week_info)
     else:
         return "Week not found", 404
+
+
+_CYGNET_DIR = os.path.normpath(
+    os.path.join(os.path.dirname(__file__), '..', 'docs', 'cygnet')
+)
+
+
+@app.route('/cygnet/')
+@app.route('/cygnet/<path:filename>')
+def cygnet(filename='index.html'):
+    """Serve the Cygnet static subsite from docs/cygnet/."""
+    mimetype = 'application/octet-stream' if filename.endswith('.gz') else None
+    return send_from_directory(_CYGNET_DIR, filename, mimetype=mimetype)

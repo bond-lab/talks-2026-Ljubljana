@@ -1,0 +1,31 @@
+{
+  "title":   "Ljubljana 2026 Wordnets",
+  "name":    "LJW",
+  "tagline": "Japanese and Slovene wordnets for the Ljubljana 2026 talks",
+  "icon":    "📚",
+
+  "databases": {
+    "main": {
+      "filename":    "ljubljana-2026.db.gz",
+      "description": "Main lexical database — English, Japanese, and Slovene synsets linked through the Open Multilingual Wordnet."
+    },
+    "provenance": {
+      "filename":    "ljubljana-2026-provenance.db.gz",
+      "description": "Provenance records tracing every data point back to its source wordnet."
+    }
+  },
+
+  "logo": null,
+
+  "displayLanguage": "ja",
+
+  "about": {
+    "intro": "<p>Wordnets used in the <a href='https://bond-lab.github.io/talks-2026-Ljubljana/'>Ljubljana 2026 talks</a> by <a href='https://fcbond.github.io/'>Francis Bond</a>. Includes English (Open English WordNet), the Japanese WordNet (日本語ワードネット), and the Open Slovene Wordnet, all linked through the <a href='https://omwn.org/'>Open Multilingual Wordnet</a>.</p>",
+    "citation": "If you use these wordnets, please cite the individual wordnet papers listed on the talk pages."
+  },
+
+  "publications": [
+    "Francis Bond and Ryan Foster (2013). Linking and extending an open multilingual wordnet. In <em>Proceedings of ACL 2013</em>.",
+    "Francis Bond and Christiane Fellbaum (2024). The Open Multilingual Wordnet 2.0. In <em>Proceedings of GWC 2024</em>."
+  ]
+}
