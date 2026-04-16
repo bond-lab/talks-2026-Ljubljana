@@ -2,6 +2,6 @@
 # English (OEWN) must come first — it provides the base synset structure.
 # Japanese and Slovene are the primary resources for the talks.
 en  = ["https://en-word.net/static/english-wordnet-2025.xml.gz"]
-ja  = ["https://github.com/omwn/omw-data/releases/download/v2.0/omw-ja-2.0.tar.xz",
+ja  = ["https://github.com/omwn/tufs/releases/latest/download/tufs-ja-2026.04.06.tar.xz",
        "file://wnja-2.0.xml.xz"]
 sl = ["file://open_slovene_wordnet_1.1.xml.xz"]
