@@ -23,16 +23,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Compute wordnet cache key
+        id: wn-key
+        run: |
+          echo "key=${{ hashFiles('etc/wordnets.toml', 'etc/wnja-2.0.xml.xz', 'etc/open_slovene_wordnet_1.1.xml.xz') }}" >> "$GITHUB_OUTPUT"
+
+      - name: Cache cygnet databases
+        id: cache-db
+        uses: actions/cache@v4
+        with:
+          path: docs/cygnet/*.db.gz
+          key: cygnet-db-${{ steps.wn-key.outputs.key }}
+
       - name: Clone cygnet toolchain
+        if: steps.cache-db.outputs.cache-hit != 'true'
         run: git clone --depth 1 https://github.com/omwn/cygnet.git ../cygnet
 
       - name: Install system dependencies
+        if: steps.cache-db.outputs.cache-hit != 'true'
         run: sudo apt-get install -y curl tar xz-utils wget xmlstarlet libxml2-utils
 
       - name: Install uv
+        if: steps.cache-db.outputs.cache-hit != 'true'
         run: curl -LsSf https://astral.sh/uv/install.sh | sh && echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Build cygnet databases
+        if: steps.cache-db.outputs.cache-hit != 'true'
         run: bash cygnet/build.sh
 
       - uses: actions/configure-pages@v5
