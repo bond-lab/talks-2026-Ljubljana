@@ -16,6 +16,8 @@ concurrency:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Bump this string to force a cache miss and rebuild the databases.
+  CACHE_VERSION: v2
 
 jobs:
   build-and-deploy:
@@ -29,7 +31,7 @@ jobs:
       - name: Compute wordnet cache key
         id: wn-key
         run: |
-          echo "key=${{ hashFiles('etc/wordnets.toml', 'etc/wnja-2.0.xml.xz', 'etc/open_slovene_wordnet_1.1.xml.xz') }}" >> "$GITHUB_OUTPUT"
+          echo "key=${{ env.CACHE_VERSION }}-${{ hashFiles('etc/wordnets.toml', 'etc/wnja-2.0.xml.xz', 'etc/open_slovene_wordnet_1.1.xml.xz') }}" >> "$GITHUB_OUTPUT"
 
       - name: Cache cygnet databases
         id: cache-db
