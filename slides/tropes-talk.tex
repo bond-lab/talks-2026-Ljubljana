@@ -6,13 +6,13 @@
   \\ Metonymy Travels, Metaphor Wanders}
 %\\[2ex] \bl{Picking Brains, Crossing Ideas}}
 \author[Bond and many more]{Francis \textbf{Bond} 
-  \\ and many, many more}
-\institute[Palacký]{General Linguistics and Asian Studies,
-  \\ Sinofon Project
-\\  Palacký University, Olomouc, Czechia
+  \\ Rowan Hall \textbf{Maudslay} and many, many more}
+\institute[Palacký]{Asian Studies  \& Sinofon Center
+  \\ General Linguistics
+\\[1ex]  Palacký University, Olomouc, Czechia
 \\[1.5ex] \url{<bond@ieee.org>}}
 
-\date[2026]{University of Ljubljana, April 2026}
+\date[JOTA 2026]{University of Ljubljana, April 2026}
 \newcommand{\ili}[1]{\href{http://www.globalwordnet.org/ili/#1}{\url{#1}}}
 
 
@@ -23,7 +23,7 @@
 \definecolor{metaBlue}{RGB}{72,120,207}
 \definecolor{metoRed}{RGB}{180,84,80}
 
-
+%
 %%% make it smaller
  % gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=omw-teanga-small.pdf omw-teanga.pdf 
 \usepackage{chainnet}
@@ -173,8 +173,8 @@
 \begin{frame}{We are trying a different approach}
   \begin{itemize}
   \item Exploit existing multilingual resources (wordnets and sense-annotated corpora)
-  \item ChainNet links word senses by metaphor --- for all$^*$ nouns in the English wordnet
-  \item Use ChainNet to study metaphor over a (quite) complete vocabulary
+  \item ChainNet links word senses by metaphor --- for most nouns in the English wordnet
+  \item Use ChainNet to study metaphor over a (more) complete vocabulary
     \begin{itemize}
     \item Link lexical to conceptual metaphors
     \item Find unknown conceptual metaphors (unlinked lexical metaphors)!
@@ -367,27 +367,26 @@ We have at least one story manually annotated for  Bulgarian, English, Mandarin 
   \begin{itemize}
   \item For all trope pairs we measure the path distance between the source and target
   \item We measure the depth in the hierarchy (distance from root)
-  \item We measure the number of synonyms of source and target
+%  \item We measure the number of synonyms of source and target
   \item We measure the inclusiveness (low is inclusive, high is specific) $\approx$ abstractness
   \item We measure the sentiment \citep{Bond:Choo:2022}
   \item We also look at the distribution of the domains \citep{10.1007/978-3-642-28604-9_2}
   \end{itemize}
   \begin{center}
-    These are new results (they will be presented at the RAAM workshop in June)
+    These are new results 
   \end{center}
 \end{frame}
 
 %%%% --- Path Distance ---
 
-\begin{frame}{Path Distance: How far apart are source and target?}
-\begin{columns}[T]
-\begin{column}{0.52\textwidth}
+\begin{frame}{Path Distance: Metaphor bridges distant concepts}
 \textbf{Path distance} = $\dfrac{1}{1 + \text{steps in WordNet graph}}$
 
 \medskip
 \textbf{Metaphor}: \eng{\ul{sloth}} (animal $\to$ laziness)
 
-\smallskip
+\medskip
+\begin{center}
 \begin{tikzpicture}[
   every node/.style={font=\scriptsize, draw=gray!50, rounded corners=2pt,
                      fill=white, inner sep=2.5pt, align=center},
@@ -405,14 +404,17 @@ We have at least one story manually annotated for  Bulgarian, English, Mandarin 
     }
   };
 \end{tikzpicture}
+\end{center}
 
-\smallskip
+\medskip
 {\scriptsize $\approx$20 steps through \textit{entity} $\Rightarrow$ path dist.\ $= 0.05$}
-\end{column}
-\begin{column}{0.46\textwidth}
+\end{frame}
+
+\begin{frame}{Path Distance: Metonymy stays close}
 \textbf{Metonym}: \eng{\ul{radish}} (root $\to$ plant)
 
-\smallskip
+\medskip
+\begin{center}
 \begin{tikzpicture}[
   every node/.style={font=\scriptsize, draw=gray!50, rounded corners=2pt,
                      fill=white, inner sep=2.5pt, align=center},
@@ -424,6 +426,7 @@ We have at least one story manually annotated for  Bulgarian, English, Mandarin 
     child { node[fill=metaBlue!25, draw=metaBlue] {\textit{radish}\\{\tiny the root}} }
   };
 \end{tikzpicture}
+\end{center}
 
 \smallskip
 {\scriptsize 2 steps $\Rightarrow$ path dist.\ $= 0.33$}
@@ -440,11 +443,8 @@ direct parent/child & 0.50 \\
 \bottomrule
 \end{tabular}
 
-\smallskip
-{\small \textbf{Prediction}: metaphors bridge
-more distant concepts}
-\end{column}
-\end{columns}
+\medskip
+\textbf{Prediction}: metaphors bridge more distant concepts
 \end{frame}
 
 \begin{frame}{Path Distance Comparison}
@@ -455,9 +455,8 @@ more distant concepts}
 
 %%%% --- Depth ---
 
-\begin{frame}{Depth: Where in the Hierarchy Does the Concept Sit?}
-\begin{columns}[T]
-\begin{column}{0.45\textwidth}
+\begin{frame}{Depth: Shallow = Abstract}
+\begin{center}
 \begin{tikzpicture}[
   every node/.style={font=\footnotesize, draw=gray!50, rounded corners=2pt,
                      fill=white, inner sep=2pt, align=center, minimum width=2.1cm},
@@ -471,8 +470,17 @@ more distant concepts}
     }
   };
 \end{tikzpicture}
-\end{column}
-\begin{column}{0.52\textwidth}
+\end{center}
+
+\medskip
+\begin{itemize}
+  \item \textbf{Shallow} (low depth) $\approx$ general/abstract concept
+  \item We use \texttt{synset.min\_depth()} — shortest path to root
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Depth: Deep = Concrete}
+\begin{center}
 \begin{tikzpicture}[
   every node/.style={font=\footnotesize, draw=gray!50, rounded corners=2pt,
                      fill=white, inner sep=2pt, align=center, minimum width=2.2cm},
@@ -488,14 +496,11 @@ more distant concepts}
     }
   };
 \end{tikzpicture}
-\end{column}
-\end{columns}
+\end{center}
 
 \medskip
 \begin{itemize}
-  \item \textbf{Shallow} (low depth) $\approx$ general/abstract concept
   \item \textbf{Deep} (high depth) $\approx$ specific/concrete concept
-  \item We use \texttt{synset.min\_depth()} — shortest path to root
   \item \textbf{Prediction}: metaphor source is more concrete (deeper) than target
 \end{itemize}
 \end{frame}
@@ -506,67 +511,59 @@ more distant concepts}
 
 %%%% --- Synonymy ---
 
-\begin{frame}{Synonymy Density: How Many Words Share This Meaning?}
-\begin{columns}[T]
-\begin{column}{0.52\textwidth}
-WordNet groups synonyms into \textbf{synsets}.
-Synonymy density = number of lemmas in the synset.
+% \begin{frame}{Synonymy Density: How Many Words Share This Meaning?}
+% WordNet groups synonyms into \textbf{synsets}.
+% Synonymy density = number of lemmas in the synset.
 
-\medskip
-\begin{tabular}{lc}
-\toprule
-Synset & Synonyms \\
-\midrule
-\textit{car} & 5 \\
-  \ \footnotesize (car, auto, automobile, \ldots & \\[2pt]
-  \ \ \ \footnotesize machine, motorcar) & \\[2pt]
-\textit{emotion} & 1 \\
-\textit{fruit} & 1 \\
-\textit{chestnut (fruit)} & 1 \\
-\textit{chestnut} (tree) & 2 \\
-\textit{love} (feeling) & 3 \\
-\ \footnotesize (love, passion, adoration) & \\
-\bottomrule
-\end{tabular}
-\end{column}
-\begin{column}{0.45\textwidth}
-\textbf{Why measure it?}
+% \medskip
+% \begin{tabular}{lc}
+% \toprule
+% Synset & Synonyms \\
+% \midrule
+% \textit{car} & 5 \\
+%   \ \footnotesize (car, auto, automobile, \ldots & \\[2pt]
+%   \ \ \ \footnotesize machine, motorcar) & \\[2pt]
+% \textit{emotion} & 1 \\
+% \textit{fruit} & 1 \\
+% \textit{chestnut (fruit)} & 1 \\
+% \textit{chestnut} (tree) & 2 \\
+% \textit{love} (feeling) & 3 \\
+% \ \footnotesize (love, passion, adoration) & \\
+% \bottomrule
+% \end{tabular}
+% \end{frame}
 
-\medskip
-Many synonyms $\Rightarrow$ concept is
-\emph{lexically entrenched} --- many
-words compete to express it, suggesting
-high communicative pressure.
+% \begin{frame}{Synonymy Density: Why Measure It?}
+% Many synonyms $\Rightarrow$ concept is
+% \emph{lexically entrenched} --- many
+% words compete to express it, suggesting
+% high communicative pressure.
 
-\medskip
-Concepts used as \textbf{source} or
-\textbf{target} of tropes may differ:
-\begin{itemize}
-  \item Do sources/targets tend to be
-        more or less lexically rich?
-  \item Does this differ between
-        metaphor and metonymy?
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
+% \medskip
+% Concepts used as \textbf{source} or
+% \textbf{target} of tropes may differ:
+% \begin{itemize}
+%   \item Do sources/targets tend to be
+%         more or less lexically rich?
+%   \item Does this differ between
+%         metaphor and metonymy?
+% \end{itemize}
+% \end{frame}
 
-\begin{frame}{Synonymy density (number of synonyms)}
-  \includegraphics[height=0.9\textheight]{img/synonyms_comparison_errorbar.png}
-\end{frame}
-
+% \begin{frame}{Synonymy density (number of synonyms)}
+%   \includegraphics[height=0.9\textheight]{img/synonyms_comparison_errorbar.png}
+% \end{frame}
+  
 %%%% --- Inclusiveness ---
 
 \begin{frame}{Inclusiveness: How Much of the Conceptual Space Does It Cover?}
-\begin{columns}[T]
-\begin{column}{0.52\textwidth}
 If concept $c$ has $n$ descendants (direct + indirect)
 among $N$ total noun synsets:
 \[
   \mathrm{inclusiveness}(c) = -\log\!\left(\frac{n+1}{N}\right)
 \]
 
-\medskip
+\begin{center}
 \begin{tabular}{lrr}
 \toprule
 Concept & Desc.\ $n$ & Incl. \\
@@ -577,18 +574,14 @@ Concept & Desc.\ $n$ & Incl. \\
 \textit{poodle} (leaf) & 0        & $\approx$ 11.3 \\
 \bottomrule
 \end{tabular}
-
+\end{center}
 \medskip
 {\small $N = 82{,}115$ noun synsets in \texttt{omw-en:1.4}}
-\end{column}
-\begin{column}{0.45\textwidth}
+\end{frame}
+
+\begin{frame}{Inclusiveness: General vs Specific}
 \textbf{Low} value ($\approx 0$) = very \emph{general} concept \\
 \textbf{High} value ($\approx 11$) = very \emph{specific} concept
-
-% \medskip
-% Similar to \emph{information content} in NLP
-% --- but based purely on WordNet structure,
-% not corpus frequency.
 
 \medskip
 Finer-grained than simple depth:
@@ -600,76 +593,23 @@ descendants.
 \textbf{Prediction}: tropes map
 \emph{from} inclusive (general) sources
 \emph{to} specific targets
-\end{column}
-\end{columns}
 \end{frame}
 
 \begin{frame}{Inclusiveness (Low is general --- High is specific)}
   \includegraphics[height=0.9\textheight]{img/inclusiveness_comparison_errorbar.png}
 \end{frame}
 
-%%%% --- Information Content ---
-
-\begin{frame}{Information Content: Corpus-Weighted Specificity}
-\begin{columns}[T]
-\begin{column}{0.52\textwidth}
-IC is based on \emph{corpus frequency}, not WordNet structure:
-\[
-  \mathrm{IC}(c) = -\log p(c), \quad
-  p(c) = \frac{\mathrm{freq}(c)}{\mathrm{freq}(\mathrm{root})}
-\]
-where $\mathrm{freq}(c)$ accumulates counts for $c$ and all
-its descendants in a sense-tagged corpus (SemCor).
-
-\medskip
-\begin{tabular}{lcc}
-\toprule
-Concept & SemCor freq & IC \\
-\midrule
-\textit{entity} (root) & 128{,}767 & $0.0$ \\
-\textit{animal}        & $\approx$5{,}000 & $\approx$ 3.2 \\
-\textit{dog}           & $\approx$200 & $\approx$ 6.4 \\
-\textit{poodle}        & $\approx$2  & $\approx$ 11.0 \\
-\bottomrule
-\end{tabular}
-\end{column}
-\begin{column}{0.45\textwidth}
-\textbf{Inclusiveness} (structural): counts
-descendants in the WordNet graph.
-
-\medskip
-\textbf{IC} (empirical): counts how often
-a concept appears in real text.
-
-\medskip
-Both measure specificity, but IC reflects
-\emph{how language is actually used} ---
-a rare concept scores high even if
-it has many siblings in WordNet.
-
-\medskip
-{\small Coverage: $\approx$67\% of source
-senses, $\approx$50\% of target senses
-attested in SemCor.}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Information Content (Low is general --- High is specific)}
-  \includegraphics[height=0.9\textheight]{img/ic_comparison_errorbar.png}
-\end{frame}
 
 %%%% --- Sentiment ---
 
 \begin{frame}{Sentiment: Is the Concept Positive or Negative?}
-\begin{columns}[T]
-\begin{column}{0.52\textwidth}
 From \citet{Bond:Choo:2022}: a sense-level
 lexicon built by combining hand-crafted
 lexicons and a sense-tagged corpus, then
 propagating scores across the WordNet graph.
 
-\medskip
+\begin{center}
+  
 \begin{tabular}{lc}
 \toprule
 Sense & Score \\
@@ -681,42 +621,43 @@ Sense & Score \\
 \textit{murder} (killing) & $-0.75$ \\
 \bottomrule
 \end{tabular}
+\end{center}
 
 \medskip
-\textbf{Baseline}: mean score of all\\
-single-word nouns $= -0.045$\\
+\textbf{Baseline}: mean score of all single-word nouns $= -0.045$\\
 {\small (slight negativity bias in the lexicon)}
-\end{column}
-\begin{column}{0.45\textwidth}
-\begin{tikzpicture}
-\draw[thick, -{stealth}] (-1.8,0) -- (1.8,0)
-  node[right, font=\footnotesize] {};
-\foreach \x/\l in {-1.5/{$-1$}, 0/{$0$}, 1.5/{$+1$}} {
-  \draw (\x, 0.06) -- (\x, -0.06);
-  \node[font=\footnotesize] at (\x, -0.25) {\l};
-}
-\node[font=\footnotesize, align=center] at (-1.5, 0.35) {very\\neg.};
-\node[font=\footnotesize] at (0, 0.35) {neutral};
-\node[font=\footnotesize, align=center] at (1.5, 0.35) {very\\pos.};
-\fill[metoRed!80]  (-1.125, 0) circle (3.5pt)
-  node[below=4pt, font=\scriptsize] {\textit{murder}};
-\fill[gray!60]   (0, 0) circle (3.5pt)
-  node[below=4pt, font=\scriptsize] {\textit{table}};
-\fill[metaBlue!80]  (1.17, 0) circle (3.5pt)
-  node[below=4pt, font=\scriptsize] {\textit{victory}};
-\draw[dashed, gray] (-0.067, -0.5) -- (-0.067, 0.6)
-  node[above, font=\scriptsize, gray] {noun avg.};
-\end{tikzpicture}
+\end{frame}
 
-\bigskip
-Coverage: 68\% of source senses,\\
-52\% of target senses annotated.
+\begin{frame}{Sentiment: Scale and Prediction}
+\begin{center}
+\begin{tikzpicture}
+% x-coords = sentiment score × 2.5 cm
+\draw[thick, -{stealth}] (-4.5,0) -- (4.75,0);
+\foreach \x/\l in {-3.75/{$-1$}, 0/{$0$}, 3.75/{$+1$}} {
+  \draw (\x, 0.06) -- (\x, -0.06);
+  \node[font=\small] at (\x, -0.32) {\l};
+}
+\node[font=\small, align=center] at (-3.75, 0.50) {very\\neg.};
+\node[font=\small]               at (0,     0.50) {neutral};
+\node[font=\small, align=center] at ( 3.75, 0.50) {very\\pos.};
+% dots: murder −1.125×2.5=−2.81, table 0→0, victory 1.17×2.5=2.93
+\fill[metoRed!80]  (-2.8125, 0) circle (3pt);
+\node[below=15pt, font=\footnotesize] at (-2.8125, 0) {\textit{murder}};
+\fill[gray!60]     (0,       0) circle (3pt);
+\node[below=15pt, font=\footnotesize] at (0,       0) {\textit{table}};
+\fill[metaBlue!80] ( 2.925,  0) circle (3pt);
+\node[below=15pt, font=\footnotesize] at ( 2.925,  0) {\textit{victory}};
+% noun average: −0.067×2.5=−0.168
+\draw[dashed, gray] (-0.168, -0.65) -- (-0.168, 0.70)
+  node[above, font=\footnotesize, gray] {noun avg.};
+\end{tikzpicture}
+\end{center}
 
 \medskip
-\textbf{Prediction}: tropes may prefer
-more neutral/positive source concepts
-\end{column}
-\end{columns}
+Coverage: 68\% of source senses, 52\% of target senses annotated.
+
+\medskip
+\textbf{Prediction}: tropes may prefer more neutral/positive source concepts
 \end{frame}
 
 \begin{frame}{Sentiment (-1.0 to +1.0)}
@@ -725,17 +666,15 @@ more neutral/positive source concepts
 
 %%%% --- Domains ---
 
-\begin{frame}{Domains: Categorising Concepts Beyond WordNet}
-\begin{columns}[T]
-\begin{column}{0.52\textwidth}
-\textbf{WordNet topics} (lexicographer files)\\
+\begin{frame}{Domains: Two Classification Systems}
+\textbf{WordNet topics} (lexicographer files)\\[2ex]
 {\small 45 broad editorial labels assigned during WordNet construction
 (e.g.\ \topic{noun.animal}, \topic{noun.artifact}, \topic{noun.cognition}).\\
 Designed to organise lexicographic work ---
 \emph{not} cognitive conceptual domains.}
 
 \medskip
-\textbf{eXtended WordNet Domains} \citep{10.1007/978-3-642-28604-9_2}\\
+\textbf{eXtended WordNet Domains} \citep{10.1007/978-3-642-28604-9_2}\\[2ex]
 {\small 170 subject-domain labels from the Dewey Decimal Classification
 (e.g.\ \dom{gastronomy}, \dom{medicine}, \dom{sport}, \dom{animals}).\\
 Propagated to all 82k noun synsets by a graph-based algorithm
@@ -743,8 +682,9 @@ Propagated to all 82k noun synsets by a graph-based algorithm
 
 \medskip
 Each synset is assigned its \textbf{highest-scoring} domain.
-\end{column}
-\begin{column}{0.45\textwidth}
+\end{frame}
+
+\begin{frame}{Domains: Do Metaphors Cross Domains?}
 \textbf{Example:}
 
 \medskip
@@ -759,13 +699,10 @@ Each synset is assigned its \textbf{highest-scoring} domain.
 
 \bigskip
 \textbf{Key question:} \\
-Do metaphors cross domains more
-than metonyms? \\[4pt]
+Do metaphors cross domains more than metonyms? \\[4pt]
 \textbf{Theory} (Kövecses): \\
 Metonymy = within-domain \\
 Metaphor = across domains
-\end{column}
-\end{columns}
 \end{frame}
 
 % \begin{frame}{Topic Heatmap for Metaphors}
@@ -784,8 +721,8 @@ Metaphor = across domains
 \begin{itemize}
   \item \textbf{Same-category rate}: of all tropes, what fraction have source and target in the \emph{same} category?
 \\        \quad{\small(higher $=$ more within-domain)}
-  \item \textbf{NMI} (Normalized Mutual Information): if you know the source category, how well can you predict the target?
-  \\      \quad{\small(0 $=$ no help at all;\; 1 $=$ perfectly predictable)}
+  % \item \textbf{NMI} (Normalized Mutual Information): if you know the source category, how well can you predict the target?
+  % \\      \quad{\small(0 $=$ no help at all;\; 1 $=$ perfectly predictable)}
 \end{itemize}
 
 % \begin{tabular}{lcc cc}
@@ -810,7 +747,7 @@ Metaphor = across domains
 & {\color{metaBlue}Metaphor} & {\color{metoRed}Metonymy} \\
 \midrule
 Same-cat.\ rate    & 0.11 & 0.21 \\
-NMI               & 0.32 & 0.41 \\
+%MI               & 0.32 & 0.41 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -831,7 +768,7 @@ and the source domain is a much stronger predictor of the target (NMI 0.41 vs.\ 
 
 
 
-\begin{frame}{We have only just begun}
+\begin{frame}{Structural Patterns: What the Numbers Show}
   \begin{itemize}
   \item Metaphors are more distant in the network than metonyms
   \item Source is more general than target (for both metaphors and metonyms, more so for metaphors) 
@@ -840,7 +777,7 @@ and the source domain is a much stronger predictor of the target (NMI 0.41 vs.\ 
     \item We need to categorize metaphors/metonyms further to see interesting differences.
     \end{itemize}
   \item Metonyms are more likely to share the same domain between
-    source and target than metaphors, as \citet{Kovecses2010Metaphor}.
+    source and target than metaphors, as \citet{Kovecses2010Metaphor}
     predicted.
   \end{itemize}
   
@@ -856,7 +793,7 @@ Still investigating
   \item For example, are translations of linked pairs likely to be
     translated with the same word
     \begin{itemize}
-    \item If so then metaphor/metonomy holds cross language
+    \item If so then metaphor/metonymy holds cross language
 %    \item[\ldots] or this may indicate issues with automatic construction of wordnets
     \end{itemize}
   \item For example \eng{head} ``body part'' is metaphorically
@@ -873,106 +810,20 @@ Still investigating
 \end{frame}
 
 \subsection{The Open Multilingual Wordnet}
-\begin{frame}
-\frametitle{Introduction to Wordnets}
-
-\begin{itemize}
-    \item A wordnet is a lexical database that organizes words into sets of synonyms, called synsets.
-    \item Each synset represents a unique concept,
-      \\ capturing different senses of a word.
-    \item Synsets are connected by semantic relations like hypernyms (superordinate) and hyponyms (subordinate).
-    \item Wordnets are used in linguistic research, natural language processing (NLP), artificial intelligence, education and (a bit) language maintenance.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{History of Wordnets}
-
-\begin{itemize}
-\item Wordnet was first developed for English at Princeton University \citep{miller1995wordnet}.
-  
-    \item It was designed it as a model of human lexical memory.
-    \item It became a foundational tool for computational linguistics and NLP.
-    \item It has influenced the development of lexical resources for many other languages.
-    \item Currently the Open English WordNet is maintained by John
-      McCrae.  It is extending and revising the Princeton Wordnet.
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Many people wanted to have wordnets}
-
+\begin{frame}{Wordnets and the Open Multilingual Wordnet}
   \begin{itemize}
-   \item \textbf{EuroWordNet} \citep{_Vossen:1998}:  
-  Dutch, English, German, French, Spanish, Italian
-
-  \item \textbf{BalkaNet}:  
-  Bulgarian, Greek, Romanian, Serbian, Turkish
-
-  \item \textbf{Asian WordNet}:  
-  Japanese, Korean, Thai, Indonesian, Vietnamese, Mongolian, Burmese
-
-  \item \textbf{IndoWordNet}:  
-    Hindi, Bengali, Marathi, Gujarati, Punjabi, Urdu, Tamil, Telugu, Kannada, Malayalam, Odia, Assamese, Nepali, Konkani, Manipuri, Kashmiri, Sanskrit
-  \item Open Slovene Wordnet
-    
-\end{itemize}
-
-And many individual projects not listed here.
-
-\end{frame}
-
-\begin{frame}{The synset for  \eng[tiger]{\ja{虎}}}
- \includegraphics[width=0.9\textwidth]{img/wn-jpn-tiger.pdf}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Multilingual Wordnets}
-
-\begin{itemize}
-    \item Over 50 hand built wordnets 
-    \item Automatically-built Wordnets exist for over 1,200 languages \\ from Swadesh, Wiktionary and more
-    \item Cross-lingual mappings help in tasks like machine translation and multilingual semantic analysis.
-    \item The Open Multilingual Wordnet (OMW) provide free access to linked open wordnets.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Challenges in Building Wordnets}
-
-\begin{itemize}
-    \item Developing wordnets requires careful analysis \\ $\Rightarrow$ impossible to automate
-    \item Word meaning can be culturally specific, \\ $\Rightarrow$ requires careful consideration of local concepts.
-    \item Data collection for under-resourced languages often involves fieldwork and expert collaboration.
-    \item Validation and refinement of synsets is an ongoing process, especially for evolving languages.
-    \item Many language resources are not open, so data cannot easily be shared.
-\end{itemize}
-\end{frame}
-
-% \begin{frame}
-% \frametitle{Building Wordnets for Under-resourced Languages}
-
-% \begin{itemize}
-%     \item Under-resourced languages may lack dictionaries, corpora, or standardized orthographies.
-%     \item Wordnets for these languages require extensive collaboration with native speakers.
-%     \item Data collection can involve workshops, interviews, and domain-specific lexicons.
-%     \item Wordnet development can support language preservation and revitalization efforts.
-%     \item These wordnets help document endangered languages and make them accessible for future research.
-% \end{itemize}
-% \end{frame}
-
-\begin{frame}
-\frametitle{Open Multilingual Wordnet (OMW)}
-
-\begin{itemize}
-    \item OMW is a free multilingual lexical database linking wordnets from many languages \citep{Bond:Foster:2013}
-    \item OMW includes wordnets for widely spoken languages
-    \item It also contains wordnets for under-resourced and endangered languages
-    \item Researchers can access and contribute to OMW to support cross-linguistic studies
-    \item The platform promotes collaborative development and data sharing across language communities
-    \item In particular it has pushed open-licenses for the wordnets
-\end{itemize}
+  \item A \txx{wordnet} is a lexical database organising words into
+    \txx{synsets} (synonym sets), each representing a unique concept,
+    linked by semantic relations: hypernymy, hyponymy, meronymy, \ldots
+  \item Over 50 hand-built wordnets exist; automatically-built wordnets
+    cover over 1{,}200 languages (Wiktionary, Swadesh lists, \ldots)
+  \item The \txx{Open Multilingual Wordnet} (OMW) links them all to
+    Princeton WordNet senses under open licenses \citep{Bond:Foster:2013}
+  \item \textbf{Key point for this talk}: if two English senses share a
+    translation in another language, that language encodes the same
+    semantic connection --- so OMW translations let us test how far
+    English metaphors and metonymies travel cross-linguistically
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Wordnets in the world 2008}
@@ -1029,9 +880,9 @@ Green is free; Blue is research only; Brown costs money
 \begin{frame}{How are wordnets built?}
 
   \begin{itemize}
-  \item Most new wordnets built be the \txx{expand} method --- the
-    structure of Engish is used as a base, and new lemmas are added to the synsets
-  \item Some wordnets are built by  the \txx{merge} method --- an existing lexical resources is merged with the English Wordnet
+  \item Most new wordnets built by the \txx{expand} method --- the
+    structure of English is used as a base, and new lemmas are added to the synsets
+  \item Some wordnets are built by the \txx{merge} method --- an existing lexical resource is merged with the English Wordnet
   \item The IndoWordnet \citep{Bhattacharyya:2010} used a clever hybrid
     \begin{itemize}
     \item a new structure was made for Hindi, using existing lexical resources 
@@ -1084,7 +935,7 @@ So we have many lexicons, linked to English senses, of various sizes and qualiti
  
   \begin{center}
   \begin{tabular}{lrrrr}
-    Lang & Unlinked & Metaphor & Metonomy & Non-Zero Instances \\ \hline
+    Lang & Unlinked & Metaphor & Metonymy & Non-Zero Instances \\ \hline
 sv & 0.70 & 1.71 & 2.10 & 417   \\
 he & 0.69 & 1.58 & 2.31 & 472   \\
 eu & 0.82 & 1.30 & 1.80 & 5,562  \\
@@ -1106,7 +957,7 @@ Normalize by dividing  by the average distance for all senses.
 
   \begin{center}
   \begin{tabular}{lrrrr}
-    Lang & Unlinked & Metaphor & Metonomy & Non-Zero Instances \\ \hline
+    Lang & Unlinked & Metaphor & Metonymy & Non-Zero Instances \\ \hline
 es & 0.85 & 1.17 & 1.79 & 5,915 \\
  hr & 0.81 & 1.22 & 1.98 & 3,576 \\
     fr & 0.94 & 1.10 & 1.25 & 18,975 \\
@@ -1126,7 +977,7 @@ id & 0.87 & 1.21 & 1.58 & 9,803 \\
 
     \begin{center}
       \begin{tabular}{lrrrr}
-    Lang & Unlinked & Metaphor & Metonomy & Non-Zero Instances \\ \hline
+    Lang & Unlinked & Metaphor & Metonymy & Non-Zero Instances \\ \hline
 is & 0.73 & 1.51 & 2.13 & 388 \\
 ca & 0.83 & 1.23 & 1.84 & 6,000 \\
 sk & 0.73 & 1.35 & 2.31 & 2,067 \\
@@ -1141,9 +992,9 @@ Mean & 0.78 & 1.39 & 1.96 &  3,774\makebox[0mm]{~~~.3}
   \end{tabular}
     \end{center}
     
-  Unlinked  share fewer translations, metaphor shares more and metonomy shares much more.
+  Unlinked  share fewer translations, metaphor shares more and metonymy shares much more.
 
-  \Large Metonomy is more likely to hold cross linguistically!
+  \Large Metonymy is more likely to hold cross linguistically!
   
 \end{frame}
 
@@ -1229,7 +1080,7 @@ Mean & 0.78 & 1.39 & 1.96 &  3,774\makebox[0mm]{~~~.3}
   \end{center}
 \end{frame}
 
-\begin{frame}{We will mark metaphor/metonomy in more languages}
+\begin{frame}{We will mark metaphor/metonymy in more languages}
    \begin{tcolorbox}
    \includegraphics{img/yami_cropped.png} \textit{yami}  \hfill (Japanese)\\ %闇 
    \wns{yami}{1} --- absence of light or illumination  \hfill (Japanese wordnet)\\
@@ -1399,7 +1250,7 @@ but struggle with \emph{lexicalized, culturally grounded metaphors}.
     \\ \txx{more universal} (average overlap 1.96 more than the baseline)
   \item  Metaphor often requires analogical reasoning and cultural framing
     \\ \txx{more culture and language specific} (average overlap 1.39 more than the baseline)
-  \item Metaphor pairs are further apart that Metonym pairs
+  \item Metaphor pairs are further apart than Metonym pairs
   \end{itemize}
 \item We have shown these results hold over many languages
 % \item We don't know if the tropes are independently discovered, come from a common ancestor, or are borrowed (the same problem as with cognates in etymology)
@@ -1410,7 +1261,7 @@ but struggle with \emph{lexicalized, culturally grounded metaphors}.
 
 \end{frame}
 
-\begin{frame}{Toward a broader understanding of Metaphor and Metonomy}
+\begin{frame}{Toward a broader understanding of Metaphor and Metonymy}
   \begin{itemize}
   \item Language is essential to our construction and transmission of knowledge
   \item Metaphors are the scaffolding for this construction
@@ -1420,7 +1271,7 @@ but struggle with \emph{lexicalized, culturally grounded metaphors}.
     \item And the same language speakers will have many sub-cultures
     \end{itemize}
   \item Understanding cross-linguistic differences will help us understand cross-cultural differences
-  \item Current metaphor research does not give us the comprehensive view we need to do this
+%  \item Current metaphor research does not give us the comprehensive view we need to do this
     \begin{center}
       \large We are building an understanding based on a more complete view of language
     \end{center}
@@ -1449,7 +1300,7 @@ but struggle with \emph{lexicalized, culturally grounded metaphors}.
     \begin{itemize}
     \item chainnet-xling: \url{https://github.com/bond-lab/chainnet-xling}
     \end{itemize}
-  \item Open Multilingual Wordnet: \url{https:omwn.org}
+  \item Open Multilingual Wordnet: \url{https://omwn.org}
   \end{itemize}
 
   

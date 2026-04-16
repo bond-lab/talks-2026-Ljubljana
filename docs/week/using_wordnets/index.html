@@ -56,7 +56,7 @@
     <div class="container mt-4">
         
 <h2>Using Wordnets — Online and Through Python</h2>
-<p><strong>Wednesday, 13:00–14:30, Classroom 018 (Faculty of Arts)</strong></p>
+<p><strong>Wed, 13:00–14:30, Classroom 018 (Faculty of Arts)</strong></p>
 
 <p>(<a href="../../static/pdf/wordnet.pdf">slides</a>)
 
@@ -119,6 +119,104 @@ jwn = wn.Wordnet('omw-ja:1.4')
   <ol><a href=''>WNJA-2.0</a>
     <ol><a href=''>Open Slovene Wordnet 1.1</a>
 </li>
+
+<h2 id="some-interesting-cases">Some interesting cases</h2>
+<h3 id="双子-futago-twins-the-individual-vs.-the-pair">1. 双子 (futago) — twin(s) — the individual vs. the pair</h3>
+<p><code>wnja-10734394-n</code> is <em>one of</em> a twin pair: “同じ妊娠から同時に生まれた2人の子供の一方”.<br />
+<code>wnja-80001237-n</code> is the <em>pair</em> (二子/双生児), with <code>holo_member</code>→individual and <code>mero_member</code>→individual.<br />
+The synset for the pair has <strong>no definition</strong> — a data gap. What relation should link these to Princeton WN’s “twin” (10733457)?</p>
+<h3 id="僕-vs.-俺-vs.-私-pronouns-encoded-as-metalinguistic-facts">2. 僕 vs. 俺 vs. 私 — pronouns encoded as metalinguistic facts</h3>
+<p>All three first-person pronouns share synset <code>wnja-77000017-n</code> (僕/俺) or <code>wnja-77000012-n</code> (私), with <code>exemplifies</code> relations to: - <code>wnja-06327718-n</code> (一人称/第一人称) — 1st person - <code>wnja-06327136-n</code> (人代名詞) — personal pronoun<br />
+- <code>wnja-06299916-n</code> (単数形) — singular<br />
+- register features: 僕 exemplifies <code>formal</code>; 私 exemplifies <code>polite</code> (丁寧/慇懃)<br />
+Discussion: is this the right way to encode register/gender distinctions? Should 俺 and 僕 be in the <em>same</em> synset?</p>
+<h3 id="彼-kare-boyfriend-or-3rd-person-pronoun">3. 彼 (kare) — boyfriend OR 3rd person pronoun</h3>
+<p>Two entirely different senses: <code>wnja-09871364-n</code> “男性と恋愛する女の子または若い女性の愛人である男” (boyfriend) and <code>wnja-77000046-n</code> (3rd person pronoun, masculine).<br />
+Japanese collapses pronoun/boyfriend into one word; English does not.</p>
+<h3 id="お久しぶりです-おひさ-register-variation-in-one-synset">6. お久しぶりです / おひさ — register variation in one synset</h3>
+<p><code>wnja-80000674-x</code> holds: お久しぶりです, お久し振りです, お久しぶり, お久し振り, お久, おひさ, おひさしぶりです, おひさしぶり — 8 forms, from formal to casual, all in one synset.<br />
+Discussion: should register variants be split into separate synsets?</p>
+<h3 id="ふん-え-えっ-exclamative-cluster">7. ふん / え / えっ — exclamative cluster</h3>
+<p><code>wnja-80001169-x</code> (え/えっ/ええっ): “他者を威圧する際に発する語” (said when intimidating someone).<br />
+<code>wnja-80001166-x</code> (ふん): “怒りや不満、あるいは他人を見下していることを示す際に発せられる語”.<br />
+よいしょ is <strong>not in the wordnet at all</strong> — a gap!</p>
+<h3 id="とんでもない-negation-exclamative">8. とんでもない — negation exclamative</h3>
+<p><code>wnja-80001330-x</code>: “前の言説と正反対であることを表す際に用いられるフレーズ” (phrase expressing the exact opposite of what was just said).<br />
+Covers: “not at all / that’s outrageous / don’t mention it” — a very pragmatic, context-sensitive entry.</p>
+<h3 id="ま-まあ-softeninghedging-particle">9. ま / まあ — softening/hedging particle</h3>
+<p><code>wnja-80001386-x</code>: “軽い肯定、あるいは同意を伝える際に用いられるフレーズ; 会話相手や自分を軽くなだめる、あるいは説得するためにも用いられる”<br />
+(light agreement; also used to soothe or gently persuade the listener or oneself)<br />
+One of the most untranslatable Japanese pragmatic particles — is this definition adequate?</p>
+<h3 id="お疲れ様-ご苦労様-sympathy-greetings">10. お疲れ様 / ご苦労様 — sympathy greetings</h3>
+<p><code>wnja-80002405-x</code>: “相手の苦労をねぎらう発話” (utterance sympathizing with someone’s effort).<br />
+Both forms in one synset; but note ご苦労様 has strong register constraints (superiors→inferiors only) that aren’t encoded.</p>
+<h3 id="羽-wa-birds-and-rabbits">11. 羽 (wa) — birds and rabbits</h3>
+<p><code>wnja-76100129-x</code>: “ツバメやタカやペンギンなどの鳥、またウサギに対しても用いられる分類辞” — sortal classifier for birds and (unusually) rabbits.</p>
+<h3 id="個-ko-vs.-冊-satsu-classifier-granularity">12. 個 (ko) vs. 冊 (satsu) — classifier granularity</h3>
+<p><code>個</code> (wnja-76100106-x): inanimate objects — watermelons, grapes, apples, eggs, computers, problems, festivals…<br />
+<code>冊</code> (wnja-76100107-x): bound flat-object sets — books, magazines, notebooks, dictionaries.<br />
+Discussion: how does one decide where to draw the category boundary?</p>
+<h3 id="位-kuraii-for-souls">13. 位 (kurai/i) — for souls</h3>
+<p><code>wnja-76100104-x</code>: “特に、肉体から切り離された魂に対して用いられる sortal classifier”<br />
+The classifier for departed souls. No English equivalent exists.</p>
+<h3 id="振-furi-only-for-japanese-swords">14. 振 (furi) — only for Japanese swords</h3>
+<p><code>wnja-76100140-x</code>: “もっぱら、日本刀に対して用いられる sortal classifier”<br />
+Ultra-specific: used only for <em>nihontō</em>. Contrast with 本 (for long thin things in general).</p>
+<h3 id="暑い寒い-vs-熱い冷たい-the-temperature-antonym-split">15. 暑い↔寒い vs 熱い↔冷たい — the temperature antonym split</h3>
+<p>The newly added antonym network: - 暑い (atmospheric hot) ↔ 寒い (atmospheric cold)<br />
+- 熱い (hot to touch) ↔ 冷たい (cold to touch/emotionally cold)<br />
+- 暖かい (pleasantly warm outdoors) ↔ 涼しい (pleasantly cool outdoors)<br />
+- 温かい (warm food/body) ↔ 冷たい<br />
+Note 冷たい has <em>two</em> antonyms (熱い and 温かい). Should it be split?</p>
+<h3 id="馬鹿-polysemy-explosion">16. 馬鹿 — polysemy explosion</h3>
+<p>馬鹿 maps to 10 different synsets: adjectives for “lacking intelligence”, “slow to learn”, “recklessly irresponsible”, “absurd” — plus nouns for “foolishness” (with antonym 分別 wisdom), “gullible person”, “person lacking sense”, “intellectually inferior person”.<br />
+Its antonym 04890112-n (分別/俐発/明達) is the tidy opposite of the abstract noun sense only.</p>
+<h3 id="阿呆-ahō-dialectal-synonym-with-extra-senses">17. 阿呆 (ahō) — dialectal synonym with extra senses</h3>
+<p>阿呆 shares most of 馬鹿’s synsets but also has <code>wnja-02571536-a</code> “滑稽な、愚かな” with <code>exemplifies</code> → 話し言葉/俗語 (colloquial/slang).<br />
+馬鹿 does <em>not</em> have this; 阿呆 is marked as colloquial but 馬鹿 isn’t. Accuracy?</p>
+<h3 id="義理関係-in-law-semantic-gap">18. 義理関係 — in-law semantic gap</h3>
+<p><code>wnja-80001347-n</code>: “血の繋がりではなく、婚姻や養子縁組による関係” (relationship by marriage or adoption, not blood).<br />
+Japanese 義理 encodes the social-obligation dimension of such relationships; English has no single word.</p>
+<h3 id="一石二鳥-四面楚歌-七転八起-yojijukugo-gap">19. 一石二鳥 / 四面楚歌 / 七転八起 — yojijukugo gap</h3>
+<p>None of these are in the wordnet. The yojijukugo supertype <code>wnja-70100000-n</code> exists, but only ~4 of the 368 four-character idiom synsets have Japanese entries in the NTU-MC database. This is a major <strong>data gap</strong> for the Japan-specific vocabulary — an opportunity for future work.</p>
+<h3 id="なるほど-epistemic-understanding-marker">20. なるほど — epistemic understanding marker</h3>
+<p><code>wnja-80001756-x</code>: “ある状況から推測して、あるいは説明を聞いて、それが起こる理由について理解した際に用いられるフレーズ” (phrase used when you understand why something happened, either from context or explanation).<br />
+Literally “as one might naturally expect/become” — translates as “I see”, “indeed”, “that makes sense”. The definition here is unusually precise and interesting for a wordnet entry.</p>
+<h2 id="missing-entries">Missing entries</h2>
+<h3 id="greetings-social-rituals-x-pos-japan-specific">Greetings &amp; social rituals (x-POS, Japan-specific)</h3>
+<p><strong>1. よいしょ / どっこいしょ</strong> The exertion grunt when lifting or sitting down. Close to English “yo-heave-ho” but also used rhetorically as a self-encouragement marker (老人が「どっこいしょ」と腰を下ろす). No Princeton WN equivalent; needs its own Japan-specific exclamative synset.</p>
+<p><strong>2. いただきます</strong> Pre-meal utterance: “I humbly receive.” Encodes gratitude to the living things that gave their life, the cook, and the farmer simultaneously. Often mistranslated as “let’s eat”. Antonym-ish pair: ごちそうさま (post-meal). Both are missing.</p>
+<p><strong>3. ごちそうさまでした</strong> Post-meal closure. “It was a feast.” Etymologically: ご馳走 = running around (to gather ingredients). Culturally required; skipping it is rude.</p>
+<p><strong>4. いってきます / いってらっしゃい</strong> Departure/farewell pair spoken at the threshold of the home. No direct English equivalent. The pair should be linked with <code>antonym</code> or a dedicated paired-utterance relation.</p>
+<p><strong>5. ただいま / おかえり(なさい)</strong> Return-home pair. ただいま = “I’m home (just now)”; おかえりなさい = “welcome back”. Again a threshold-crossing pair. Compare お邪魔します / お邪魔しました (entering/leaving someone else’s home) — also missing.</p>
+<p><strong>6. よろしくお願いします</strong> The most untranslatable greeting: “I ask for your favour / please be kind to me / I’m in your hands.” Used at introductions, at the start of collaborations, when making requests, when ending emails. One concept, dozens of English contexts.</p>
+<p><strong>7. すみません</strong> Literally “it doesn’t end / I can’t settle this debt.” Used as apology, attention-getter, and expression of gratitude — simultaneously. The pragmatic promiscuity of すみません is a classic linguistics puzzle.</p>
+<p><strong>Bonus pattern — the threshold utterances (1, 4, 5 above):</strong><br />
+Japanese has a complete set of utterances tied to crossing physical thresholds (home-door, restaurant, shop, someone else’s home). They form a semantic field — call it “boundary-crossing rituals” — that simply doesn’t exist as a Princeton WN category. All are missing and all need Japan-specific synsets with a common supertype.</p>
+<hr />
+<h3 id="culturally-untranslatable-concepts-nouns-japan-specific">Culturally untranslatable concepts (nouns, Japan-specific)</h3>
+<p><strong>8. わびさび (侘び寂び)</strong> The aesthetic of impermanence, imperfection, and incompleteness. Foundational to Japanese art, tea ceremony, garden design. No single Princeton WN synset covers it.</p>
+<p><strong>9. 木漏れ日 (komorebi)</strong> Sunlight filtering through leaves. A single noun for a specific visual phenomenon that requires a sentence to describe in English. Hypernym: 光 or 自然現象.</p>
+<p><strong>10. もったいない</strong> The feeling of regret at waste or at a thing being used below its potential. Popularized globally by Wangari Maathai. Maps loosely to “wastefulness” but carries an emotional/moral charge that the noun doesn’t.</p>
+<p><strong>11. 一期一会 (ichi-go ichi-e)</strong> “One time, one meeting” — every encounter is unrepeatable, so treasure it. Tea ceremony origin. A yojijukugo that is genuinely used as everyday vocabulary (unlike many academic 四字熟語).</p>
+<hr />
+<h3 id="yojijukugo-四字熟語-gaps">Yojijukugo (四字熟語) gaps</h3>
+<p><strong>12. 一石二鳥 (isseki nichō)</strong> “One stone, two birds” = kill two birds with one stone. Exact counterpart to the English idiom, making it a perfect teaching example of cross-linguistic isomorphism. Does it exist in English? If so, should we share the same synsets?</p>
+<p><strong>13. 七転八起 (nana korobi ya oki)</strong> “Fall seven times, rise eight.” Perseverance. Compare 七転八倒 (writhing in agony, seven falls eight rolls) which is completely different. The pair illustrates how one character change flips the meaning. Can you think of a similar example in a language you speak?</p>
+<p><strong>14. 四面楚歌 (shimen soka)</strong> “Surrounded on all sides by Chu songs” — completely isolated, no allies. Chinese historical origin (Battle of Gaixia).</p>
+<p>What should it’s hypernym be?</p>
+<hr />
+<h3 id="modern-social-phenomena-nouns-japan-specific">Modern social phenomena (nouns, Japan-specific)</h3>
+<p><strong>15. 引きこもり (hikikomori)</strong> Social withdrawal syndrome: prolonged self-isolation, typically young adults, refusing to leave home. Now an international loanword. Needs a clinical/social definition and hypernym → 精神的疾患 or 社会的孤立.</p>
+<p><strong>16. 過労死 (karōshi)</strong> Death from overwork. Also an international loanword. Should be a compound synset: hypernym → 死亡原因, with relation to 過労 (overwork). The fact that Japanese needed a single word for this is itself a cultural data point.</p>
+<p><strong>17. 婚活 / 就活 / 終活</strong> The -活 compound series: marriage-hunting (婚活), job-hunting (就活), end-of-life preparation (終活). These three share a productive morphological pattern worth encoding in a family of synsets. 就活 is particularly interesting as it encodes the ritualized Japanese job-hunting season.</p>
+<p><strong>18. 孤独死 (kodokushi)</strong> Dying alone and undiscovered for days/weeks. Distinguished from 孤立死 by connotation. A social-welfare and urbanization concept. Again, the lexical gap in English (no single word) is the point.</p>
+<hr />
+<h3 id="mimetics-psychological-states">Mimetics &amp; psychological states</h3>
+<p><strong>19. ほっこり</strong> Warm-hearted coziness; the feeling of being gently warmed (physically or emotionally). Kyoto dialect origin, now standard. Close to Danish <em>hygge</em> but more about gentle internal warmth than social atmosphere. What can it be linked to?</p>
+<p><strong>20. なんとなく</strong> “Somehow; for no particular reason; vaguely.” Encodes a diffuse motivation or sensation that the speaker cannot or will not articulate. Closely related to the cultural preference for implicit communication (察する / 空気を読む). English “somehow” is much weaker. Currently absent despite being extremely high-frequency.</p>
+<hr />
+
 
 <h3>Readings/Preparation</h3>
 
